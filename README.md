@@ -7,9 +7,9 @@ Author: Omar Bouchenak Khelladi, Fabien Ferrero and Lionel Tombakdjian
 
 This board was developed for education to support courses on embedded software, digital and analog electronic, telecommunication, signal processing and IoT.
 
-# AT800B
+# ATS800B
 
-The AT800B system is based on a compact antenna test range (CATR) using a paraboloid reflector with a dualpolarization feed antenna placed at its single focal point to
+The ATS800B system is based on a compact antenna test range (CATR) using a paraboloid reflector with a dualpolarization feed antenna placed at its single focal point to
 transform a spherical wavefront into a planar wave distribution and vice versa.
 With the compact dimension, the measurement system can stand on a bench lab bench, enabling radiation measurement at millimeter waves in a user-friendly environment.
 The compact range has been designed for optimal operation in the 20-50GHz bands.
