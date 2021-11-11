@@ -26,7 +26,10 @@ The optimal equipment to measure antenna with AT800B is a Vector Network Analyse
 <img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/test_bench.png">
 
 
-# Measurement Equipments for 5G Over The Air measurement
+# How to install
+
+PyAMS will require several Python lib :
+-
 
 # REFERENCES
 
