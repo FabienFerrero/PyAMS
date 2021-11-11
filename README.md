@@ -29,7 +29,11 @@ The optimal equipment to measure antenna with AT800B is a Vector Network Analyse
 # How to install
 
 PyAMS will require several Python lib :
--
+- RsInstrument
+- time
+- matplotlib
+- random
+- pipython
 
 # REFERENCES
 
