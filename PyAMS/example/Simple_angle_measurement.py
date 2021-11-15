@@ -1,16 +1,11 @@
 import math
 from math import sqrt
-
-import matplotlib.pyplot as plt
-from RsInstrument.RsInstrument import RsInstrument
-from RsInstrument import *  # The RsInstrument package is hosted on pypi.org, see Readme.txt for more details
-from time import time
 import numpy as np
-from random import uniform
+import matplotlib.pyplot as plt
+from time import time
+from RsInstrument.RsInstrument import RsInstrument
 from pipython import GCSDevice, pitools
 
-
-from pipython import GCSDevice
 
 gcs = GCSDevice('C-863.12')
 gcs.InterfaceSetupDlg()
@@ -32,9 +27,6 @@ try:
 except Exception as ex:
 	print('Error initializing the instrument session:\n' + ex.args[0])
 	exit()
-
-# +++++++++++++++++++++++++++++++ OPTIONS ++++++++++++++++++++++++++++++++++++++++++++
-# resource_string_1 = 'TCPIP::169.254.202.203::INSTR'  # Standard LAN connection (also called VXI-11)
 
 print('')
 print('... DONE !')
@@ -60,7 +52,7 @@ print('')
 print('===========================================================================')
 print('============= TASK 3 : Configuration of Parameters ... ')
 print('===========================================================================')
-instr.clear_status() # Pour effacer toutes les erreurs du sous-système d'état de l'instrument
+instr.clear_status() # Clean all subsystem instrument errors
 instr.write_str('*RST')
 instr.write_str('FREQ:STARt 24 GHZ')
 instr.write_str('FREQ:STOP  28 GHZ')
@@ -75,14 +67,14 @@ instr.write_str('SYSTEM:DISPLAY:UPDATE ON')
 #instr.write_str('SYST:DISP:UPD ON')
 #instr.write_str('SENSe1:FREQuency:STARt 1 GHz; STOP 5.5 GHz')               #  the center frequency
 #instr.write_str('FREQ:CENT 28.0 GHz')
-instr.write_str('FREQ:SPAN 100 MHz')                #  the span
+instr.write_str('FREQ:SPAN 100 MHz')
 #instr.write_str_with_opc('INIT:IMM:DUMM')
 
 print('')
 print('... DONE !')
 print('')
 
-instr.VisaTimeout = 10000  # Sweep timeout - set it higher than the instrument acquisition time
+#instr.VisaTimeout = 10000
 instr.write_str('INIT1', 50000)
 
 
@@ -97,7 +89,7 @@ instr.write_str('SOURce1:PATH1:DIRectaccess B16')
 instr.write_str('SOURce1:PATH2:DIRectaccess B16')
 instr.write_str('DISP:WIND1:STAT ON')
 
-instr.write_str('SWE:POIN 21') # nombre d'échantillon
+instr.write_str('SWE:POIN 21')
 
 
 # ====== "Ch1Tr1", "B2/A1D1" (PORT 1) ..... en dB
@@ -108,7 +100,7 @@ instr.write_str('CALC1:FORM  MLOGarithmic; :DISP:WIND1:TRAC2:FEED "Ch1Tr1"') # A
 
 # ===== "Ch1Tr2", "B2D2/A2D2" (PORT 2) ..... en dB
 instr.write_str('CALC2:PAR:SDEF "Ch1Tr2","B2D2/A2D2"') # calcul parametre S= B2/A1, nom : Ch1Tr1
-instr.write_str('CALC2:FORM  MLOGarithmic; :DISP:WIND1:TRAC3:FEED "Ch1Tr2"') # Afiichage fig; format : phase
+instr.write_str('CALC2:FORM  MLOGarithmic; :DISP:WIND1:TRAC3:FEED "Ch1Tr2"') # Affichage fig; format : phase
 #instr.write_str('CALC1:FORM  PHASe; :DISP:WIND:TRAC3:FEED "Ch1Tr2"')
 
 
@@ -138,12 +130,12 @@ for i in range(angle_min, angle_max+1, angle_step):
     print("Measure...")
     # Trace 1
     instr.write_str(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
-    temp = instr.query_bin_or_ascii_float_list('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+    temp = instr.query_bin_or_ascii_float_list('FORM ASCII; :TRAC? CH1DATA', 50000)
     trace1.append(temp[20:22])
 
     # Trace 2
     instr.write_str(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
-    temp = instr.query_bin_or_ascii_float_list('FORM ASCII; :TRAC? CH2DATA', 50000)# récupérer un tableau de flottant
+    temp = instr.query_bin_or_ascii_float_list('FORM ASCII; :TRAC? CH2DATA', 50000)
     trace2.append(temp[20:22])
 
     # Preparing for next measurement
@@ -153,7 +145,7 @@ for i in range(angle_min, angle_max+1, angle_step):
 
 
 # Return to middle position of the angle range, should be changed to return to a ref position
-# At the begining of the script, the setup shoud verify (go to) a home ref position
+# At the begining of the script, the setup shoud verify (go to) a home ref position, to be done
 print('Return to home')
 home = (nb_points/2)*angle_step
 gcs.MVR(axis, -home)
@@ -185,33 +177,33 @@ np.savetxt('DATA_s4.txt', s4)
 
 
 #Display of some plots
-plt.figure() # fig 1
+plt.figure()
 plt.subplot(2,2,1)
 plt.plot(angles_list,s1,label='Mag_Polar1', lw=1)
 plt.plot(angles_list,s2,label='Mag_Polar2', lw=1)
-plt.title('Amplitude des deux polars à 0deg - 0dB')
+plt.title('AMplitude of porizations 1 and 2 at 0deg - 0dB')
 plt.ylabel('Mag (dB)')
 plt.legend()
 plt.grid()
 plt.subplot(2,2,3)
 plt.plot(angles_list,s3,label='Phase_Polar1', lw=1)
 plt.plot(angles_list,s4,label='Phase_Polar2', lw=1)
-plt.title('Phase des deux polars à 0deg - 0dB')
-plt.xlabel('Phi (degré)')
-plt.ylabel('Phase (degré)')
+plt.title('Phase of polarizations 1 and 2 at 0deg - 0dB')
+plt.xlabel('Phi (degree)')
+plt.ylabel('Phase (degree)')
 plt.legend()
 plt.grid()
 plt.subplot(2,2,2)
 plt.plot(angles_list,s1,label='Mag_Polar1', lw=2)
-plt.title('Amplitude polar 1 à 0deg - 0dB')
+plt.title('Amplitude polarization 1 at 0deg - 0dB')
 plt.ylabel('Mag (dB)')
 plt.legend()
 plt.grid()
 plt.subplot(2,2,4)
 plt.plot(angles_list,s3,label='Phase_Polar1', lw=2)
-plt.title('Phase polar 1 à 0deg - 0dB')
-plt.xlabel('Phi (degré)')
-plt.ylabel('Phase (degré)')
+plt.title('Phase polarization 1 at 0deg - 0dB')
+plt.xlabel('Phi (degree)')
+plt.ylabel('Phase (degree)')
 plt.legend()
 plt.grid()
 plt.show()
