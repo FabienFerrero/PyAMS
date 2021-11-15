@@ -27,17 +27,16 @@ The optimal equipment to measure antenna with AT800B is a Vector Network Analyse
 In order to measure the two components of the radiating wave using the two-feed of the recflector source, two different configurations must be use for AUT transmission or reception mode.
 
 For testing your AUT in receiving mode, the required configuration is :
-$ The two ports of the refector source are connected to VNA port 1 et 2
-$ The AUT cable is connected to receiver B
+* The two ports of the refector source are connected to VNA port 1 et 2
+* The AUT cable is connected to receiver B
 
 <img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/schematic_Rx.png">
 
 For testing your AUT in transmission mode, the required configuration is :
-$ The two ports of the refector source are connected to receiver R2 and B
-$ The AUT cable is connected to Port 1
+* The two ports of the refector source are connected to receiver R2 and B
+* The AUT cable is connected to Port 1
 
 <img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/schematic_Tx.png">
-
 
 
 
@@ -48,7 +47,7 @@ PyAMS will require several Python lib :
 - time
 - matplotlib
 - random
-- pipython
+- pipython (lib from PI motor)
 
 # REFERENCES
 
