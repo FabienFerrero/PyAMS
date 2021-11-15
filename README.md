@@ -39,14 +39,14 @@ For testing your AUT in transmission mode, the required configuration is :
 <img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/schematic_Tx.png">
 
 
-
 # How to install
 
 PyAMS will require several Python lib :
-- RsInstrument
-- time
-- matplotlib
-- random
+- Math
+- Numpy
+- Matplotlib
+- Time
+- RsInstrument ( for R&S VNA)
 - pipython (lib from PI motor)
 
 # REFERENCES
