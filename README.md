@@ -18,7 +18,7 @@ A rotational stage from PI motor is available to rotate the Antenna Under Test (
 The reflector source is a dual-port wideband Vivaldi that can capture two orthogonal polarizations simultaneously.
 One objective of this repo will be to provide know-how to extend the capabilities of the actual system.
 
-<img src="https://raw.githubusercontent.com/FabienFerrero/PyAMS/main/Documents/pictures/schematic_tx.png">
+<img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/setup.png">
 
 # Measurement Equipments for antenna measurement
 
