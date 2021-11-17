@@ -55,7 +55,7 @@ We recently measure a  28GHz switched beam lens antenna.
 The switched matrix and Vivaldi antenna array are provided by EV Technologie. 
 The matrix can connect any of the 4 input ports and any of the 16 output ports up to 30GHz.
 
-<img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/schematic_Tx.png">
+<img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/1636896716788.jpg">
 
 # REFERENCES
 
