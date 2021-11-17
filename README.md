@@ -49,6 +49,14 @@ PyAMS will require several Python lib :
 - RsInstrument ( for R&S VNA)
 - pipython (lib from PI motor)
 
+# Example of measurement
+
+We recently measure a  28GHz switched beam lens antenna.
+The switched matrix and Vivaldi antenna array are provided by EV Technologie. 
+The matrix can connect any of the 4 input ports and any of the 16 output ports up to 30GHz.
+
+<img src="https://github.com/FabienFerrero/PyAMS/blob/main/Documents/pictures/schematic_Tx.png">
+
 # REFERENCES
 
 ATS800B, accessed June, 2020. [Online].Available:
