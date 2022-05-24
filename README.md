@@ -60,4 +60,4 @@ The matrix can connect any of the 4 input ports and any of the 16 output ports u
 # REFERENCES
 
 ATS800B, accessed June, 2020. [Online].Available:
-https://www.rohde-schwarz.com/us/product/ats800bproductstartpage.html.
+[https://scdn.rohde-schwarz.com/ur/pws/dl_downloads/dl_common_library/dl_brochures_and_datasheets/pdf_1/ATS800B_dat-sw_en_3607-9572-22_v0100.pdf]
