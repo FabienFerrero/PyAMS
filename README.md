@@ -48,6 +48,7 @@ PyAMS will require several Python lib :
 - Time
 - RsInstrument ( for R&S VNA)
 - pipython (lib from PI motor)
+- MBX Python Library (path: ```C:\SWMilliBox\MBX\python\```)
 
 # Example of measurement
 
